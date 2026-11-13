@@ -1,0 +1,45 @@
+[project]
+name = "slide-capture"
+version = "0.1.0"
+description = "画面の指定範囲を監視し、スライド切り替え時に自動でスクリーンショットを保存するタスクトレイ常駐アプリ"
+readme = "README.md"
+authors = [
+    { name = "kichouji", email = "ryu1222@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "img2pdf>=0.6.3",
+    "mss>=10.2.0",
+    "numpy>=2.5.4",
+    "pillow>=13.0.0",
+    "pynput>=1.8.2",
+    "pystray>=0.19.5",
+    "tomlkit>=0.15.2",
+    "watchdog>=7.1.0",
+]
+
+[project.scripts]
+slide-capture = "slide_capture:main"
+
+[project.gui-scripts]
+slide-capture-gui = "slide_capture:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
