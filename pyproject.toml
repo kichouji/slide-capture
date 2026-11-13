@@ -3,6 +3,8 @@ name = "slide-capture"
 version = "0.1.0"
 description = "画面の指定範囲を監視し、スライド切り替え時に自動でスクリーンショットを保存するタスクトレイ常駐アプリ"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     { name = "kichouji", email = "ryu1222@gmail.com" }
 ]

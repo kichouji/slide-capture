@@ -179,7 +179,10 @@ class App:
         os.startfile(folder)
 
     def open_config(self) -> None:
-        subprocess.Popen(["notepad.exe", str(self.config.path)])
+        # カレントフォルダに置かれた同名の exe を誤って起動しないよう、フルパスで指定する
+        system_root = os.environ.get("SYSTEMROOT", r"C:\Windows")
+        notepad = Path(system_root) / "System32" / "notepad.exe"
+        subprocess.Popen([str(notepad), str(self.config.path)])
 
     def toggle_autostart(self) -> None:
         self.config.update("app", "autostart", not self.config.settings.autostart)

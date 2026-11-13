@@ -12,3 +12,6 @@ wheels/
 # Tool caches
 .pytest_cache/
 .ruff_cache/
+
+# Windows shortcut (contains absolute paths for this PC)
+*.lnk
